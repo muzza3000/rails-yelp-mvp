@@ -1,0 +1,21 @@
+## A visitor can see the list of all restaurants.
+restaurants           GET    /restaurants(.:format)                            restaurants#index
+
+## A visitor can add a new restaurant, and be redirected to the show view of that new restaurant.
+
+new_restaurant        GET    /restaurants/new(.:format)                        restaurants#new
+                      POST   /restaurants(.:format)                            restaurants#create
+
+restaurant            GET    /restaurants/:id(.:format)                        restaurants#show
+
+## A visitor can see the details of a restaurant, with all the reviews related to the restaurant.
+
+restaurant            GET    /restaurants/:id(.:format)                        restaurants#show
+????restaurant_reviews    GET    /restaurants/:restaurant_id/reviews(.:format)     reviews#index????
+
+## A visitor can add a new review to a restaurant
+
+new_restaurant_review GET    /restaurants/:restaurant_id/reviews/new(.:format) reviews#new
+                      POST   /restaurants/:restaurant_id/reviews(.:format)     reviews#create
+
+rails generate controller Restaurants
