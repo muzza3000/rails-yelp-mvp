@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="py-5">
+    <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="restaurant">
+          <h2><%= restaurant.name %></h2>
+          <p><%= restaurant.address %></p>
+          <p><%= restaurant.phone_number %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
